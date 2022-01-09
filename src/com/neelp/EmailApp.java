@@ -23,9 +23,9 @@ public class EmailApp {
     public static void addInfo(Employees employees, int numEmployees) {
         for(int i = 0; i < numEmployees; i++){
 
-            String lastName = enterLastName();
-
             String firstName = enterFirstName();
+
+            String lastName = enterLastName();
 
             employees.add(new Email(firstName, lastName));
 
@@ -36,16 +36,6 @@ public class EmailApp {
         }
     }
 
-    private static String enterFirstName() {
-        String firstName = JOptionPane.showInputDialog(
-                null,
-                "Enter first name: ",
-                "Email Administration Application",
-                JOptionPane.NO_OPTION
-        );
-        return firstName;
-    }
-
     private static String enterLastName() {
         String lastName = JOptionPane.showInputDialog(
                 null,
@@ -54,6 +44,16 @@ public class EmailApp {
                 JOptionPane.NO_OPTION
         );
         return lastName;
+    }
+
+    private static String enterFirstName() {
+        String firstName = JOptionPane.showInputDialog(
+                null,
+                "Enter first name: ",
+                "Email Administration Application",
+                JOptionPane.NO_OPTION
+        );
+        return firstName;
     }
 
     private static void addNextEmployeeEmail(int numEmployees, int i) {
