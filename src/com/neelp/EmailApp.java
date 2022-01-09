@@ -23,33 +23,47 @@ public class EmailApp {
     public static void addInfo(Employees employees, int numEmployees) {
         for(int i = 0; i < numEmployees; i++){
 
-            String firstName = JOptionPane.showInputDialog(
-                    null,
-                    "Enter first name: ",
-                    "Email Administration Application",
-                    JOptionPane.NO_OPTION
-            );
+            String lastName = enterLastName();
 
-            String lastName = JOptionPane.showInputDialog(
-                    null,
-                    "Enter last name: ",
-                    "Email Administration Application",
-                    JOptionPane.NO_OPTION
-            );
+            String firstName = enterFirstName();
 
             employees.add(new Email(firstName, lastName));
 
             employees.get(i).setAltEmail("example@example.com");
             //JOptionPane.showMessageDialog(null,"Alternate email: "+email.getAlternateEmail());
 
-            if(i<numEmployees-1)
-                JOptionPane.showMessageDialog(
-                        null,
-                        "                   Add the next employee",
-                        "Email Administration Application",
-                        JOptionPane.NO_OPTION
-                );
+            addNextEmployeeEmail(numEmployees, i);
         }
+    }
+
+    private static String enterFirstName() {
+        String firstName = JOptionPane.showInputDialog(
+                null,
+                "Enter first name: ",
+                "Email Administration Application",
+                JOptionPane.NO_OPTION
+        );
+        return firstName;
+    }
+
+    private static String enterLastName() {
+        String lastName = JOptionPane.showInputDialog(
+                null,
+                "Enter last name: ",
+                "Email Administration Application",
+                JOptionPane.NO_OPTION
+        );
+        return lastName;
+    }
+
+    private static void addNextEmployeeEmail(int numEmployees, int i) {
+        if(i<numEmployees-1)
+            JOptionPane.showMessageDialog(
+                    null,
+                    "                   Add the next employee",
+                    "Email Administration Application",
+                    JOptionPane.NO_OPTION
+            );
     }
 
     public static void main(String[] args) {
